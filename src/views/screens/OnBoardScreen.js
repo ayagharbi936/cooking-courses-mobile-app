@@ -2,14 +2,11 @@ import React from "react";
 import {
   View,
   Text,
-  StyleSheet,
   SafeAreaView,
-  Button,
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
 import { COLORS, gs } from "../../styles";
-import AntDesign from "react-native-vector-icons/AntDesign";
 
 const OnBoardScreen = ({ navigation }) => {
   return (
@@ -18,54 +15,82 @@ const OnBoardScreen = ({ navigation }) => {
         ...gs.container,
       }}
     >
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1}}>
         <ImageBackground
-          source={require("../../assets/bg7.jpg")}
+          source={require("../../assets/img_int2.jpg")}
           style={{ height: "100%", width: "100%" }}
         ></ImageBackground>
       </View>
       <View
         style={{
-          paddingHorizental: 30,
-          alignItems: "center",
-          paddingVertical: 30,
+          flex: 1,
+          paddingHorizontal: 35,
+          justifyContent:'center',
         }}
       >
         <Text
           style={{
             textAlign: "center",
-            fontSize: 18,
+            fontSize: 27,
             color: COLORS.dark,
-            fontWeight: "bold",
+            lineHeight: 37,
+            fontFamily: "Roboto-Bold",
           }}
         >
-          Rejoignez-nous {"\n"} pour des recettes et astuces Culinaires
+          Bienvenue Au{"\n"}Centre De Formation{"\n"}Hajer Ben Hamouda
         </Text>
-        <View style={{ alignSelf: "center", marginTop: 20 }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("signUp")}
-            activeOpacity={0.8}
-            style={{ ...gs.btnContainer, height: 30, paddingHorizontal: 50 }}
-          >
-            <AntDesign name="arrowright" size={23} color={COLORS.white} />
-          </TouchableOpacity>
+        <Text
+          style={{
+            fontFamily: "Roboto-Regular",
+            color: COLORS.lightGray,
+            fontSize: 16,
+            textAlign: "center",
+            marginVertical: 10,
+            textTransform: "capitalize",
+            lineHeight: 23,
+            marginBottom: 0,
+          }}
+        >
+          Découvrez Les meilleures recettes délicieuses, savoureuses et
+          rigoureusement sélectionnées pour vous.
+        </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            alignSelf: "center",
+            marginVertical: 25,
+          }}
+        >
+          <View
+            style={{
+              height: 6,
+              width: 28,
+              backgroundColor: COLORS.primary,
+              borderRadius: 3,
+              marginRight: 8,
+            }}
+          />
+          <View
+            style={{
+              height: 6,
+              width: 6,
+              backgroundColor: COLORS.secondary,
+              borderRadius: 3,
+              
+            }}
+          />
         </View>
-        <TouchableOpacity onPress={() => navigation.navigate("login")}>
-          <Text style={styles.text}>
-            Vous avez déjà un compte ?
-            <Text style={gs.highlight}> S'identifier</Text>
-          </Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("onBoardScreen2")}
+          activeOpacity={0.8}
+          style={{ ...gs.btnContainer }}
+        >
+          <Text style={gs.btnTitle}>Suivant</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  text: {
-    marginTop: 25,
-    color: COLORS.gray,
-    fontSize: 16,
-  },
-});
+
 export default OnBoardScreen;

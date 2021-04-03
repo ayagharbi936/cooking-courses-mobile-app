@@ -46,7 +46,7 @@ const CategoriesFilterList = ({ categories }) => {
                         fontSize: 15,
                         color: COLORS.lightGray,
                       },
-                ]}
+                ,{fontFamily:'Roboto-Regular'}]}
               >
                 {item}
               </Text>

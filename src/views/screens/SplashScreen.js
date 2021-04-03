@@ -5,7 +5,7 @@ import { COLORS, gs } from "../../styles";
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     this.timeoutHandle = setTimeout(() => {
-      navigation.navigate("onBoardScreen2");
+      navigation.navigate("onBoardScreen");
     }, 2000);
   });
 
@@ -17,7 +17,7 @@ const SplashScreen = ({ navigation }) => {
       }}
     >
       <View style={{ ...gs.center, flex: 1 }}>
-        <Text style={styles.logo}>Logo</Text>
+      
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text

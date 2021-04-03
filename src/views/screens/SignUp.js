@@ -31,21 +31,21 @@ const SignUp = ({ navigation }) => {
           Créer un compte
         </Text>
         <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
-          <TextInput style={{ fontSize: 18 }} placeholder="Nom" />
+          <TextInput style={gs.textInput} placeholder="Nom" />
         </View>
         <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
-          <TextInput style={{ fontSize: 18 }} placeholder="Prénom" />
+          <TextInput style={gs.textInput} placeholder="Prénom" />
         </View>
         <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
-          <TextInput style={{ fontSize: 18 }} placeholder="E-mail" />
+          <TextInput style={gs.textInput} placeholder="E-mail" />
         </View>
         <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
-          <TextInput style={{ fontSize: 18 }} placeholder="Téléphone" />
+          <TextInput style={gs.textInput} placeholder="Téléphone" />
         </View>
         <View style={{ ...gs.inputContainer, marginBottom: 15 }}>
           <TextInput
             secureTextEntry
-            style={{ fontSize: 18 }}
+            style={gs.textInput}
             placeholder="Mot de passe"
           />
         </View>
@@ -63,12 +63,13 @@ const SignUp = ({ navigation }) => {
             textAlign: "center",
             marginTop: 20,
             color: COLORS.lightGray,
+            fontFamily:'Roboto-Regular'
 
-            fontWeight: "300",
+           
           }}
         >
-          ou
-          <Text style={{ ...gs.highlight }}> s'inscrire </Text>
+         Ou
+          <Text style={{ ...gs.highlight }}>  s'inscrire  </Text>
           avec
         </Text>
         <View style={styles.socialBtnContainer}>
@@ -85,12 +86,11 @@ const SignUp = ({ navigation }) => {
         >
           <Text
             style={{
-              fontSize: 14,
+              fontSize: 16,
               textAlign: "center",
               marginTop: 20,
               color: COLORS.lightGray,
-
-              fontWeight: "300",
+              fontFamily:'Roboto-Regular'
             }}
           >
             Vous avez dejà un compte?

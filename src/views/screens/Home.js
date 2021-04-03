@@ -4,103 +4,178 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
+  Image,
+  ImageBackground,
   TouchableOpacity,
   ScrollView,
   FlatList,
 } from "react-native";
-import Icon from "react-native-vector-icons/FontAwesome";
 import { COLORS, gs } from "../../styles";
-import CategoriesFilterList from "../components/CategoriesFilterList";
 import CategoryCard from "../components/CategoryCard";
+import SubCategoryCard_Horizontal from "../components/SubCategoryCard_Horizontal";
+import all_categories from "../../consts/categories";
+import all_subCategories from "../../consts/subCategories";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
-const Home = ({navigation}) => {
-  const [categories, setCategories] = React.useState([
-    { id:0,
-      name: "Dessert",
-      image: "https://images.unsplash.com/photo-1600002415506-dd06090d3480?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDR8fGNha2V8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      rate: 5,
-      posts:20,
-      members:10,
-      price:100,
-      description:
-        "Lorem ipsum dolor sit. Sed consectetur est odio, vel accumsan est malesuada nec. In eu purus magna. Sed euismod in dui in finibus. Pellentesque ut diam ac neque pharetra ultricies ac non sapien. Nulla blandit metus tellus, vel.",
-      subDescription: "Lorem ipsum dolor sit amet",
-    },
-    { id:1,
-      name: "Entrées Salées",
-      image: "https://images.unsplash.com/photo-1585995207653-dc16855299da?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTU2fHxwaXp6YXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      rate: 2.5,
-      posts:7,
-      members:4,
-      price:150,
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est odio, vel accumsan est malesuada nec. In eu purus magna. Sed euismod in dui in finibus. Pellentesque ut diam ac neque pharetra ultricies ac non sapien. Nulla blandit metus tellus, vel elementum erat varius sed. Sed accumsan felis justo, pretium pellentesque dui fermentum in..",
-      subDescription: "Lorem ipsum dolor sit amet",
-    },
-    { id:2,
-      name: "Soupes",
-      image: "https://images.unsplash.com/photo-1603208614636-aa308b918a32?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjU2fHxib3dsfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      rate: 3,
-      posts:10,
-      members:15,
-      price:100,
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est odio, vel accumsan est malesuada nec. In eu purus magna. Sed euismod in dui in finibus. Pellentesque ut diam ac neque pharetra ultricies ac non sapien. Nulla blandit metus tellus, vel elementum erat varius sed. Sed accumsan felis justo, pretium pellentesque dui fermentum in..",
-      subDescription: "Lorem ipsum dolor sit amet",
-    },
-     
-    { id:3,
-      name: "Pains",
-      image: "https://images.unsplash.com/photo-1589569444370-90ddbdd2a89c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDl8fGJyZWFkfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-      rate: 4,
-      posts:5,
-      members:10,
-      price:140,
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est odio, vel accumsan est malesuada nec. In eu purus magna. Sed euismod in dui in finibus. Pellentesque ut diam ac neque pharetra ultricies ac non sapien. Nulla blandit metus tellus, vel elementum erat varius sed. Sed accumsan felis justo, pretium pellentesque dui fermentum in..",
-      subDescription: "Lorem ipsum dolor sit amet",
-    },
-   
-  ]);
+const Home = ({ navigation }) => {
+  const [categories, setCategories] = React.useState(all_categories);
+  const [subCategories, setSubCategories] = React.useState(all_subCategories);
 
+  const imageUri =
+    "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
   return (
-    <SafeAreaView
-      style={{ ...gs.container, paddingHorizontal: 22, paddingTop: 30 }}
-    >
-      <View style={gs.rowBetween}>
-        <View>
-          <Text style={gs.title}>Categories</Text>
-          <Text style={gs.subTitle}>
-            Découvrir les categories des nos cours
-          </Text>
-        </View>
-        <TouchableOpacity>
+    <ScrollView>
+      <SafeAreaView style={{ ...gs.container, paddingHorizontal: 30 }}>
+        <View style={{ marginTop: 40, ...gs.rowBetween, alignItems: "center" }}>
           <View
+            style={[
+              {
+                height: 50,
+                width: 50,
+                borderRadius: 25,
+                backgroundColor: COLORS.primary,
+              },
+              !imageUri && gs.center,
+            ]}
+          >
+            <Image
+              style={[
+                {
+                  ...gs.image,
+                  borderRadius: 25,
+                  display: "none",
+                },
+                imageUri && { display: "flex" },
+              ]}
+              source={{ uri: imageUri ? imageUri : "notfound" }}
+            />
+
+            {!imageUri && (
+              <Text
+                style={{
+                  fontFamily: "Roboto-Medium",
+                  color: COLORS.white,
+                  fontSize: 17,
+                }}
+              >
+                SA
+              </Text>
+            )}
+          </View>
+          <TouchableOpacity>
+            <View style={{position:'relative'}}>
+              <Ionicons
+                name="notifications-outline"
+                size={29}
+                color={COLORS.dark}
+              />
+              <View style={{position:'absolute',backgroundColor:COLORS.primary,height:7,width:7,borderRadius:7/2,top:5,left:5}} />
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        <View style={{ marginTop: 20, marginBottom: 5 }}>
+          <Text
             style={{
-              ...gs.center,
-              backgroundColor: COLORS.dark,
-              height: 40,
-              width: 40,
-              borderRadius: 15,
+              color: COLORS.dark,
+              fontFamily: "Roboto-Regular",
+              fontSize: 25,
             }}
           >
-            <Icon name="search" color={COLORS.white} size={20} />
+            Salut,{" "}
+            <Text
+              style={{ fontFamily: "Roboto-Medium", color: COLORS.primary }}
+            >
+              Samanta!
+            </Text>
+          </Text>
+        </View>
+        <Text
+          style={{
+            fontSize: 15,
+            color: COLORS.lightGray,
+            fontFamily: "Roboto-Regular",
+          }}
+        >
+          Restez branché(e) pour decouvrir nos nouvelles formations.
+        </Text>
+        <View style={{ marginVertical: 30 }}>
+          <Text
+            style={{
+              fontSize: 17,
+              fontFamily: "Roboto-Medium",
+              color: COLORS.dark,
+            }}
+          >
+            Formations à la une
+          </Text>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {subCategories
+              .filter((item) => item.id === 1 || item.id === 8 || item.id === 5)
+              .map((item) => {
+                return (
+                  <SubCategoryCard_Horizontal
+                    navigation={navigation}
+                    key={item.id}
+                    subCategory={item}
+                  />
+                );
+              })}
+          </ScrollView>
+        </View>
+        <View style={{ paddingBottom: 20 }}>
+          <View
+            style={{ ...gs.rowBetween, alignItems: "center", marginBottom: 15 }}
+          >
+            <Text
+              style={{
+                fontSize: 17,
+                fontFamily: "Roboto-Medium",
+                color: COLORS.dark,
+              }}
+            >
+              Nos Categories
+            </Text>
+            <TouchableOpacity onPress={() => navigation.navigate("categories")}>
+              <Text style={{ textAlign: "center", color: COLORS.gray }}>
+                Voir plus
+              </Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-      </View>
-
-      <CategoriesFilterList categories={categories} />
-      <FlatList showsVerticalScrollIndicator={false}
-        numColumns={1}
-        data={categories}
-        keyExtractor={item=>item.id}
-        renderItem={({item}) => <CategoryCard category={item} navigation={navigation} /> }
-      />
-    </SafeAreaView>
+          {categories.map((item) => {
+            return (
+              <CategoryCard
+                key={item.id}
+                category={item}
+                navigation={navigation}
+              />
+            );
+          })}
+          <TouchableOpacity
+            onPress={() => navigation.navigate("categories")}
+            style={{
+              borderWidth: 1,
+              borderColor: COLORS.gray,
+              padding: 10,
+              width: 100,
+              alignSelf: "center",
+            }}
+          >
+            <Text style={{ textAlign: "center", color: COLORS.gray }}>
+              Voir plus
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
- 
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });
 export default Home;

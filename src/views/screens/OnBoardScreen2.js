@@ -2,68 +2,94 @@ import React from "react";
 import {
   View,
   Text,
-  StyleSheet,
-  ImageBackground,
+  SafeAreaView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import { COLORS, gs } from "../../styles";
-import AntDesign from "react-native-vector-icons/AntDesign";
 
-const OnBoardScreen2 = ({navigation}) => {
+const OnBoardScreen2 = ({ navigation }) => {
   return (
-    <ImageBackground
-      source={require("../../assets/bg5.jpg")}
-      style={{ ...gs.center, flex: 1 }}
+    <SafeAreaView
+      style={{
+        ...gs.container,
+      }}
     >
-      <View style={{ paddingHorizontal: 30 }}>
-      <Text
-          style={{
-            color: COLORS.dark,
-            fontWeight: "bold",
-            fontSize: 25,
-            textAlign: "center",
-            marginTop:30,
-          }}
-        >
-          Bienvenue au
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark,
-            fontWeight: "bold",
-            fontSize: 25,
-            textAlign: "center",
-          }}
-        >
-          Centre De Formation
-        </Text>
-        <Text
-          style={{
-            color: COLORS.dark,
-            fontWeight: "bold",
-            fontSize: 23,
-            textAlign: "center",
-            marginBottom: 10,
-          }}
-        >
-          Hejer Ben Hamouda
-        </Text>
-        <Text style={{ color: COLORS.gray, fontSize: 17, textAlign: "center",marginBottom:10 }}>
-        Découvrez les meilleures recettes délicieuses, savoureuses et rigoureusement sélectionnées pour vous.
-        </Text>
-        <View style={{ alignSelf: "center", marginTop: 30 }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("onBoardScreen")}
-            activeOpacity={0.8}
-            style={{ ...gs.btnContainer, height: 30, paddingHorizontal: 50 }}
-          >
-            <AntDesign name="arrowright" size={23} color={COLORS.white} />
-          </TouchableOpacity>
-        </View>
+      <View style={{ flex: 1 }}>
+        <ImageBackground
+          source={require("../../assets/img_int3.jpg")}
+          style={{ height: "100%", width: "100%" }}
+        ></ImageBackground>
       </View>
-    </ImageBackground>
+      <View
+        style={{
+          flex: 1,
+          paddingHorizontal: 35,
+          justifyContent:'center'
+        }}
+      >
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 27,
+            color: COLORS.dark,
+            lineHeight: 37,
+            fontFamily: "Roboto-Bold",
+            
+          }}
+        >
+          Rejoingez-nous{'\n'}Pour Des Astuces{'\n'}et Recettes Culinaires
+        </Text>
+        
+        <View
+          style={{
+            flexDirection: "row",
+            alignSelf: "center",
+            marginVertical: 25,
+          }}
+        >
+          <View
+            style={{
+              height: 6,
+              width: 6,
+              backgroundColor: COLORS.secondary,
+              borderRadius: 3,
+              marginRight: 8,
+            }}
+          />
+          <View
+            style={{
+              height: 6,
+              width: 28,
+              backgroundColor: COLORS.primary,
+              borderRadius: 3,
+            }}
+          />
+        </View>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("signUp")}
+          activeOpacity={0.8}
+          style={{ ...gs.btnContainer }}
+        >
+          <Text style={gs.btnTitle}>S'inscrire</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={{marginTop:25}} onPress={()=>navigation.navigate('login')}>
+        <Text
+          style={{
+            fontFamily: "Roboto-Regular",
+            color: COLORS.lightGray,
+            fontSize: 16,
+            textAlign: "center",
+           
+           
+            
+          }}
+        >
+          Vous avez déjà un compte? <Text style={gs.highlight}>Identifiez-vous</Text>
+        </Text></TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({});
 export default OnBoardScreen2;

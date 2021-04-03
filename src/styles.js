@@ -5,7 +5,8 @@ export const COLORS = {
   white: "#FFF",
   dark: "#232323",
   primary: "#FB390D",
-  bgColor: "#f9f9f9",
+  secondary:"#FBB4A0",
+  bgColor: "#f5f5f5",
   gray: "#717171",
   lightGray: "#ADAEB5",
 };
@@ -36,12 +37,14 @@ export const gs = StyleSheet.create({
   title: {
     color: COLORS.dark,
     fontSize: 23,
-    fontWeight: "700",
+    fontFamily: "Roboto-Medium",
   },
   subTitle: {
     marginTop: 10,
     color: COLORS.lightGray,
     fontSize: 16,
+    fontFamily: "Roboto-Regular",
+
   },
   image: { resizeMode: "cover", width: "100%", height: "100%" },
   btnContainer: {
@@ -55,14 +58,19 @@ export const gs = StyleSheet.create({
     fontSize: 18,
     letterSpacing: 1,
     color: Colors.white,
+    fontFamily: "Roboto-Light",
   },
   inputContainer: {
     borderBottomColor: COLORS.lightGray,
     borderBottomWidth: 0.6,
   },
+  textInput:{
+   fontSize:18,
+   fontFamily:'Roboto-Regular'
+  },
   highlight: {
     color: COLORS.primary,
-    fontWeight: "700",
+    fontFamily: "Roboto-Medium",
   },
   roundIcon: {
     justifyContent: "center",

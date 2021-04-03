@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -23,21 +24,25 @@ const Login = ({ navigation }) => {
           paddingHorizontal: 35,
         }}
       >
-        <Text style={styles.logo}>Logo</Text>
-
+        <View style={styles.logo}>
+          <Image
+            source={require("../../assets/Logo.png")}
+            style={{ ...gs.image }}
+          />
+        </View>
         <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
-          <TextInput style={{ fontSize: 18 }} placeholder="E-mail" />
+          <TextInput style={gs.textInput} placeholder="E-mail" />
         </View>
         <View style={{ ...gs.inputContainer, marginBottom: 15 }}>
           <TextInput
             secureTextEntry
-            style={{ fontSize: 18 }}
+            style={gs.textInput}
             placeholder="Mot de passe"
           />
         </View>
         <TouchableOpacity>
           <Text
-            style={{ ...gs.highlight, textAlign: "right", marginBottom: 45 }}
+            style={{ ...gs.highlight, textAlign: "right", marginBottom: 45,fontSize:16 }}
           >
             Mot de passe oublié ?
           </Text>
@@ -55,12 +60,11 @@ const Login = ({ navigation }) => {
             textAlign: "center",
             marginTop: 20,
             color: COLORS.lightGray,
-
-            fontWeight: "300",
+           fontFamily:'Roboto-Regular'
           }}
         >
-          ou
-          <Text style={gs.highlight}> connectez vous </Text>
+          Ou
+           <Text style={gs.highlight}>  connectez vous  </Text> 
           avec
         </Text>
         <View style={styles.socialBtnContainer}>
@@ -77,12 +81,11 @@ const Login = ({ navigation }) => {
         >
           <Text
             style={{
-              fontSize: 14,
+              fontSize: 16,
               textAlign: "center",
               marginTop: 20,
               color: COLORS.lightGray,
-
-              fontWeight: "300",
+              fontFamily:'Roboto-Regular'
             }}
           >
             Vous n'avez pas de compte?
@@ -96,11 +99,10 @@ const Login = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   logo: {
-    color: COLORS.lightGray,
-    fontSize: 60,
-    textTransform: "uppercase",
-    marginBottom: 70,
-    textAlign: "center",
+    height:180,
+    width: "100%",
+    marginBottom: 40,
+    backgroundColor:'red'
   },
   socialBtnContainer: {
     flexDirection: "row",

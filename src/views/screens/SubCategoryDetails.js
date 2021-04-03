@@ -10,73 +10,27 @@ import {
   TouchableOpacity,
   TextInput,
   Modal,
+  StatusBar,
 } from "react-native";
 import { Rating } from "react-native-ratings";
 
 import AntDesign from "react-native-vector-icons/AntDesign";
-import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
-
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
 import { COLORS, gs } from "../../styles";
 import Comment from "../components/Comment";
-import SubCategory1 from "../components/SubCategory1";
-
+import PayModal from "../components/PayModal";
+import all_comments from "../../consts/comments"
 const SubCategoryDetails = ({ navigation, route }) => {
   const subCategory = route.params;
   const [favorite, setFavorite] = useState(false);
   const [payModalVisible, setPayModalVisible] = useState(false);
 
-  const [comments, setComments] = useState([
-    {
-      id: 0,
-      userName: "Jackie Black",
-      userImage: "https://randomuser.me/api/portraits/women/2.jpg",
-      time: "19/04/2021 19:04",
-      rate: 1,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est.",
-    },
-    {
-      id: 1,
-      userName: "Joanne Lowe",
-      userImage: "https://randomuser.me/api/portraits/women/84.jpg",
-      time: "05/02/2021 10:04",
-      rate: 4,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est.",
-    },
-    {
-      id: 2,
-      userName: "Pedro Neal",
-      userImage: "https://randomuser.me/api/portraits/men/4.jpg",
-      time: "05/07/2020 20:54",
-      rate: 5,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est.",
-    },
-    {
-      id: 3,
-      userName: "Pedro Neal",
-      userImage: "https://randomuser.me/api/portraits/men/4.jpg",
-      time: "05/07/2020 20:54",
-      rate: 5,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est.",
-    },
-    {
-      id: 4,
-      userName: "Pedro Neal",
-      userImage: "https://randomuser.me/api/portraits/men/4.jpg",
-      time: "05/07/2020 20:54",
-      rate: 3,
-      comment:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consectetur est.",
-    },
-  ]);
+  const [comments, setComments] = useState(all_comments);
 
   return (
-    <View style={gs.container}>
+    <SafeAreaView style={gs.container}>
+       <StatusBar  translucent backgroundColor={payModalVisible ? COLORS.bgColor: 'transparent'} barStyle="dark-content" />
+
       <ImageBackground
         style={{ width: "100%", height: 270 }}
         source={{ uri: subCategory.image }}
@@ -94,7 +48,7 @@ const SubCategoryDetails = ({ navigation, route }) => {
                 style={{
                   marginLeft: 10,
                   color: COLORS.white,
-                  fontWeight: "bold",
+                  fontFamily:'Roboto-Bold'
                 }}
               >
                 Formations
@@ -113,126 +67,7 @@ const SubCategoryDetails = ({ navigation, route }) => {
       </ImageBackground>
 
       <Modal transparent visible={payModalVisible}>
-        <View
-          
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "rgba(0,0,0,0.5)",
-          }}
-        >
-          <View style={{ width: "85%" }}>
-            <TouchableOpacity
-              onPress={() => setPayModalVisible(false)}
-              style={{
-                zIndex: 10,
-                marginRight: 20,
-                marginBottom: -20,
-                alignSelf: "flex-end",
-                backgroundColor: COLORS.dark,
-                height: 40,
-                width: 40,
-                borderRadius: 20,
-                ...gs.center,
-              }}
-            >
-              <AntDesign
-                name="close"
-                size={15}
-                color={COLORS.white}
-                
-              />
-            </TouchableOpacity>
-            <View style={{ backgroundColor: COLORS.bgColor }}>
-              <View
-                style={{
-                  backgroundColor: COLORS.white,
-                  paddingHorizontal: 20,
-                  height: 55,
-                  justifyContent: "center",
-                }}
-              >
-                <Text
-                  style={{
-                    color: COLORS.primary,
-                    fontSize: 16,
-                    fontWeight: "bold",
-                  }}
-                >
-                  Etape 1
-                </Text>
-              </View>
-              <View style={{ paddingHorizontal: 20, paddingVertical: 30 }}>
-                <Text style={{ fontSize: 15, color: COLORS.lightGray }}>
-                  Vous devez transferer le montant requs à l'adresse suivante
-                </Text>
-                <Text
-                  style={{
-                    marginTop: 10,
-                    fontSize: 17,
-                    fontWeight: "bold",
-                    color: COLORS.gray,
-                  }}
-                >
-                  123456-12345-4556-455-AF-000
-                </Text>
-              </View>
-              <View
-                style={{
-                  backgroundColor: COLORS.white,
-                  paddingHorizontal: 20,
-                  height: 55,
-                  justifyContent: "center",
-                }}
-              >
-                <Text
-                  style={{
-                    color: COLORS.primary,
-                    fontSize: 16,
-                    fontWeight: "bold",
-                  }}
-                >
-                  Etape 2
-                </Text>
-              </View>
-              <View style={{ paddingHorizontal: 20, paddingVertical: 30 }}>
-                <Text style={{ fontSize: 15, color: COLORS.lightGray }}>
-                  Vous devez nous envoyer la photo du reçu pour confirmer votre
-                  paiement
-                </Text>
-              </View>
-              <TouchableOpacity
-                style={{
-                  backgroundColor: COLORS.primary,
-                  paddingHorizontal: 20,
-                  height: 55,
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <View style={{ ...gs.rowCenter }}>
-                  <AntDesign
-                    name="download"
-                    size={17}
-                    color={COLORS.white}
-                    onPress={() => navigation.goBack()}
-                  />
-                  <Text
-                    style={{
-                      color: COLORS.white,
-                      fontSize: 16,
-
-                      marginLeft: 10,
-                    }}
-                  >
-                    Télécherger Photo
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-        </View>
+        <PayModal setPayModalVisible={setPayModalVisible} />
       </Modal>
       <ScrollView>
         <View style={styles.detailsContainer}>
@@ -365,7 +200,7 @@ const SubCategoryDetails = ({ navigation, route }) => {
           <FontAwesome name="long-arrow-right" size={20} color={COLORS.white} />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 

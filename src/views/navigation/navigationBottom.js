@@ -1,16 +1,13 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+//screens
+import { COLORS } from "../../styles";
+import PaidCourses from "../screens/PaidCourses";
 import Home from "../screens/Home";
 import LiveScreen from "../screens/LiveScreen";
-
-import Feather from "react-native-vector-icons/Feather";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import FontAwesome from "react-native-vector-icons/FontAwesome";
-
-import { COLORS } from "../../styles";
-import { View } from "react-native";
-import PaidCourses from "../screens/PaidCourses";
-import { color } from "react-native-reanimated";
+import Profile from "../screens/Profile";
+import Messages from "../screens/Messages";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,7 +31,7 @@ const navigationBottom = () => {
         component={Home}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="home" color={color} size={30} />
+            <FontAwesome name="home" color={color} size={28} />
           ),
         }}
       />
@@ -43,7 +40,7 @@ const navigationBottom = () => {
         component={LiveScreen}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="video-camera" color={color} size={28} />
+            <FontAwesome name="video-camera" color={color} size={26} />
           ),
         }}
       />
@@ -55,27 +52,27 @@ const navigationBottom = () => {
             <FontAwesome
               name="shopping-basket"
               color={color}
-              size={28}
+              size={26}
             />
           ),
         }}
       />
       <Tab.Screen
         name="messages"
-        component={Home}
+        component={Messages}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="commenting" color={color} size={30} />
+            <FontAwesome name="commenting" color={color} size={26} />
           ),
         }}
       />
 
       <Tab.Screen
-        name="Cart"
-        component={Home}
+        name="profile"
+        component={Profile}
         options={{
           tabBarIcon: ({ color }) => (
-            <FontAwesome name="user" color={color} size={28} />
+            <FontAwesome name="user" color={color} size={26} />
           ),
         }}
       />

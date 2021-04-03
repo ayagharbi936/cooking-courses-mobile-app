@@ -27,22 +27,11 @@ const CategoryCard = ({ navigation, category }) => {
             </Text>
           </View>
           <View style={{ alignItems: "flex-end" }}>
-            <Rating
-              ratingBackgroundColor={COLORS.lightGray}
-              ratingColor={COLORS.primary}
-              type="custom"
-              startingValue={category.rate}
-              ratingCount={5}
-              readonly={true}
-              imageSize={12}
-              tintColor={COLORS.white}
-            />
-            <Text style={{ ...gs.subTitle, marginTop: 2, fontSize: 12 }}>
-              {category.posts} postes
+            
+            <Text style={{marginTop: 2, fontSize: 12,color:COLORS.primary, fontFamily:'Roboto-Medium' }}>
+              {category.posts} Formations
             </Text>
-            <Text style={{ ...gs.subTitle, marginTop: 2, fontSize: 12 }}>
-              {category.members} membres
-            </Text>
+            
           </View>
         </View>
       </View>
