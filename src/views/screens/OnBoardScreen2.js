@@ -24,23 +24,22 @@ const OnBoardScreen2 = ({ navigation }) => {
       <View
         style={{
           flex: 1,
-          paddingHorizontal: 35,
-          justifyContent:'center'
+          paddingHorizontal:35,
+          justifyContent: "center",
         }}
       >
         <Text
           style={{
             textAlign: "center",
-            fontSize: 27,
+            fontSize: 25,
             color: COLORS.dark,
             lineHeight: 37,
             fontFamily: "Roboto-Bold",
-            
           }}
         >
-          Rejoingez-nous{'\n'}Pour Des Astuces{'\n'}et Recettes Culinaires
+          Rejoingez-nous{"\n"}Pour Des Astuces{"\n"}et Recettes Culinaires
         </Text>
-        
+
         <View
           style={{
             flexDirection: "row",
@@ -73,20 +72,22 @@ const OnBoardScreen2 = ({ navigation }) => {
         >
           <Text style={gs.btnTitle}>S'inscrire</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{marginTop:25}} onPress={()=>navigation.navigate('login')}>
-        <Text
-          style={{
-            fontFamily: "Roboto-Regular",
-            color: COLORS.lightGray,
-            fontSize: 16,
-            textAlign: "center",
-           
-           
-            
-          }}
+        <TouchableOpacity
+          style={{ marginTop: 25 }}
+          onPress={() => navigation.navigate("login")}
         >
-          Vous avez déjà un compte? <Text style={gs.highlight}>Identifiez-vous</Text>
-        </Text></TouchableOpacity>
+          <Text
+            style={{
+              fontFamily: "Roboto-Regular",
+              color: COLORS.lightGray,
+              fontSize: 15,
+              textAlign: "center",
+            }}
+          >
+            Vous avez déjà un compte?{" "}
+            <Text style={gs.highlight}>Identifiez-vous</Text>
+          </Text>
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );

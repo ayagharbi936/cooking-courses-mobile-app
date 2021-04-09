@@ -11,7 +11,7 @@ import { COLORS, gs } from "../../styles";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import { Rating } from "react-native-ratings";
 const { width } = Dimensions.get("screen");
-const cardWidth = width / 2 - 50;
+const cardWidth = width / 2 - 54;
 const SubCategoryCard_Horizontal = ({ navigation, subCategory }) => {
   return (
     <TouchableOpacity

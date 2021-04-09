@@ -18,11 +18,13 @@ const navigationBottom = () => {
         style: {
           height: 60,
           borderTopWidth: 1,
-          backgroundColor:COLORS.white
+          backgroundColor:COLORS.bgColor,
+          borderWidth:0.5,
+          borderColor:COLORS.gray
+
         },
         showLabel: false,
         activeTintColor: COLORS.primary,
-        activeBackgroundColor: COLORS.white,
         inactiveTintColor: COLORS.lightGray,
       }}
     >

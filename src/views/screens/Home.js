@@ -25,7 +25,7 @@ const Home = ({ navigation }) => {
     "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
   return (
     <ScrollView>
-      <SafeAreaView style={{ ...gs.container, paddingHorizontal: 30 }}>
+      <SafeAreaView style={{ ...gs.container,...gs.screenPadding }}>
         <View style={{ marginTop: 40, ...gs.rowBetween, alignItems: "center" }}>
           <View
             style={[

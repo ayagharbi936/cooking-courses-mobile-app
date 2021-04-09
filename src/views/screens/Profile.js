@@ -16,7 +16,7 @@ const Profile = ({navigation}) => {
 
   return (
     <SafeAreaView
-      style={{ ...gs.container, paddingHorizontal: 30, paddingVertical: 40 }}
+      style={{ ...gs.container, ...gs.screenPadding, paddingVertical: 40 }}
     >
       
       <View>

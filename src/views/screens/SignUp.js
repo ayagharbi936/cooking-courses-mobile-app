@@ -17,8 +17,8 @@ const SignUp = ({ navigation }) => {
       <SafeAreaView
         style={{
           ...gs.container,
+          paddingHorizontal:35,
           justifyContent: "center",
-          paddingHorizontal: 35,
           paddingVertical: 30,
         }}
       >
@@ -86,7 +86,7 @@ const SignUp = ({ navigation }) => {
         >
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 15,
               textAlign: "center",
               marginTop: 20,
               color: COLORS.lightGray,

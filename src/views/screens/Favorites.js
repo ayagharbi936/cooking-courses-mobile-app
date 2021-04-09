@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
 import { COLORS, gs } from "../../styles";
 import AntDesign from "react-native-vector-icons/AntDesign";
@@ -15,7 +16,16 @@ const Favorites = ({ navigation }) => {
   const [favorites, setFavorites] = useState(all_favorites);
   useEffect(() => {
     setFavorites((prev) =>
-      prev.filter((item) => item.id === 3 || item.id === 10 || item.id === 6)
+      prev.filter(
+        (item) =>
+          item.id === 2 ||
+          item.id === 1 ||
+          item.id === 5 ||
+          item.id === 3 ||
+          item.id === 10 ||
+          item.id === 4 ||
+          item.id === 6
+      )
     );
   }, []);
 
@@ -24,10 +34,10 @@ const Favorites = ({ navigation }) => {
   };
   return (
     <SafeAreaView
-      style={{ ...gs.container, paddingHorizontal: 30, paddingVertical: 40 }}
+      style={{ ...gs.container, ...gs.screenPadding, paddingTop: 40 }}
     >
       <TouchableOpacity
-        style={{ marginTop: 10, alignSelf: "flex-start", marginBottom: 40 }}
+        style={{ marginTop: 10, alignSelf: "flex-start", marginBottom: 20 }}
       >
         <AntDesign
           name="arrowleft"
@@ -36,27 +46,23 @@ const Favorites = ({ navigation }) => {
           onPress={() => navigation.goBack()}
         />
       </TouchableOpacity>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        {favorites.map((item) => {
-          return (
-            <FavoriteCard
-              navigation={navigation}
-              key={item.id}
-              subCategory={item}
-              deleteFavorite={deleteFavorite}
-            />
-          );
-        })}
-      </ScrollView>
+      <FlatList
+      columnWrapperStyle={{justifyContent:'space-between',paddingTop:20}}
+        showsVerticalScrollIndicator={false}
+        numColumns={2}
+        data={favorites}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <FavoriteCard
+            navigation={navigation}
+            key={item.id}
+            subCategory={item}
+            deleteFavorite={deleteFavorite}
+          />
+        )}
+      />
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
 export default Favorites;

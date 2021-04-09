@@ -21,7 +21,7 @@ const Login = ({ navigation }) => {
           ...gs.container,
           justifyContent: "center",
           paddingVertical: 30,
-          paddingHorizontal: 35,
+          paddingHorizontal:35,
         }}
       >
         <View style={styles.logo}>
@@ -42,7 +42,12 @@ const Login = ({ navigation }) => {
         </View>
         <TouchableOpacity>
           <Text
-            style={{ ...gs.highlight, textAlign: "right", marginBottom: 45,fontSize:16 }}
+            style={{
+              ...gs.highlight,
+              textAlign: "right",
+              marginBottom: 45,
+              fontSize: 16,
+            }}
           >
             Mot de passe oublié ?
           </Text>
@@ -60,11 +65,11 @@ const Login = ({ navigation }) => {
             textAlign: "center",
             marginTop: 20,
             color: COLORS.lightGray,
-           fontFamily:'Roboto-Regular'
+            fontFamily: "Roboto-Regular",
           }}
         >
           Ou
-           <Text style={gs.highlight}>  connectez vous  </Text> 
+          <Text style={gs.highlight}> connectez vous </Text>
           avec
         </Text>
         <View style={styles.socialBtnContainer}>
@@ -81,11 +86,11 @@ const Login = ({ navigation }) => {
         >
           <Text
             style={{
-              fontSize: 16,
+              fontSize: 15,
               textAlign: "center",
               marginTop: 20,
               color: COLORS.lightGray,
-              fontFamily:'Roboto-Regular'
+              fontFamily: "Roboto-Regular",
             }}
           >
             Vous n'avez pas de compte?
@@ -99,10 +104,9 @@ const Login = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   logo: {
-    height:180,
+    height: 180,
     width: "100%",
     marginBottom: 40,
-    backgroundColor:'red'
   },
   socialBtnContainer: {
     flexDirection: "row",

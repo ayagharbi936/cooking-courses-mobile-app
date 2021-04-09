@@ -29,23 +29,50 @@ const Comment = ({ comment }) => {
               {comment.userName}
             </Text>
           </View>
-          <View >
-          <Text style={{alignSelf:'flex-end',fontSize:15,fontWeight:'bold',color:COLORS.gray}}>
-          <Rating
-              
-              ratingColor={COLORS.primary}
-              type="custom"
-              startingValue={1}
-              ratingCount={1}
-              readonly={true}
-              imageSize={13}
-              tintColor={COLORS.bgColor}
-            />{' '}{comment.rate}</Text>
-          <Text style={{ color: COLORS.gray, fontSize: 12, fontWeight: "700" }}>
-            {comment.time}
-          </Text></View>
+          <View>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent:'flex-end'
+              }}
+            >
+              <Rating
+                ratingColor={COLORS.primary}
+                type="custom"
+                startingValue={1}
+                ratingCount={1}
+                readonly={true}
+                imageSize={13}
+                tintColor={COLORS.bgColor}
+              />
+              <Text
+                style={{
+                 
+                  fontSize: 15,
+                  fontWeight: "bold",
+                  color: COLORS.gray,
+                }}
+              >
+               
+               {comment.rate}
+              </Text>
+            </View>
+            <Text
+              style={{ color: COLORS.gray, fontSize: 12, fontWeight: "700" }}
+            >
+              {comment.time}
+            </Text>
+          </View>
         </View>
-        <Text style={{ marginLeft: 45, color: COLORS.lightGray, fontSize: 14,marginTop:5 }}>
+        <Text
+          style={{
+            marginLeft: 45,
+            color: COLORS.lightGray,
+            fontSize: 14,
+            marginTop: 5,
+          }}
+        >
           {comment.comment}
         </Text>
       </View>
@@ -54,6 +81,6 @@ const Comment = ({ comment }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {marginVertical:10},
+  container: { marginVertical: 10 },
 });
 export default Comment;

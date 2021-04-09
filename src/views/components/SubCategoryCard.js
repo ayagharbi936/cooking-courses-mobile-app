@@ -50,8 +50,8 @@ const SubCategoryCard = ({ navigation, subCategory }) => {
             <Text
               style={{
                 color: COLORS.primary,
-                fontSize: 16,
-                fontFamily:'Roboto-Medium',
+                fontSize: 14,
+                fontFamily:'Roboto-Bold',
                 marginTop: 5,
               }}
             >

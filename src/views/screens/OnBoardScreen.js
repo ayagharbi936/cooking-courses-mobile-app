@@ -23,15 +23,15 @@ const OnBoardScreen = ({ navigation }) => {
       </View>
       <View
         style={{
+          paddingHorizontal:35,
           flex: 1,
-          paddingHorizontal: 35,
           justifyContent:'center',
         }}
       >
         <Text
           style={{
             textAlign: "center",
-            fontSize: 27,
+            fontSize: 25,
             color: COLORS.dark,
             lineHeight: 37,
             fontFamily: "Roboto-Bold",

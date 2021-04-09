@@ -20,6 +20,7 @@ import { COLORS } from "./src/styles";
 import ProfileUpdate from "./src/views/screens/ProfileUpdate";
 import Favorites from "./src/views/screens/Favorites";
 import Profile from "./src/views/screens/Profile";
+import SubCategoryFeed from "./src/views/screens/SubCategoryFeed";
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
         <Stack.Screen name="home" component={navigationBottom} />
         <Stack.Screen name="categoryDetails" component={CategoryDetails} />
         <Stack.Screen name="subCategoryDetails" component={SubCategoryDetails} />
+        <Stack.Screen name="subCategoryFeed" component={SubCategoryFeed} />
         <Stack.Screen name="profile" component={Profile} />
         <Stack.Screen name="profileUpdate" component={ProfileUpdate} />
         <Stack.Screen name="favorites" component={Favorites} />

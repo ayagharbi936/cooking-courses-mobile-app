@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 1,
     marginTop: -25,
-    paddingHorizontal: 30,
+    ...gs.screenPadding,
     paddingVertical: 30,
   },
   descriptionSection: {

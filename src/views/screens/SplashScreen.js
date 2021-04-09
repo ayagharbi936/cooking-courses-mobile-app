@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { COLORS, gs } from "../../styles";
 
 const SplashScreen = ({ navigation }) => {
@@ -16,9 +16,10 @@ const SplashScreen = ({ navigation }) => {
         justifyContent: "space-between",
       }}
     >
-      <View style={{ ...gs.center, flex: 1 }}>
-      
-      </View>
+    <View style={{flex:1,...gs.center}}>
+      <View style={{height:300,width:300}}>
+      <Image style={gs.image} source={require('../../assets/Logo.png')}/>
+      </View></View>
       <View style={{ marginBottom: 20 }}>
         <Text
           style={{

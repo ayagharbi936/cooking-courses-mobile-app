@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.bgColor,
     flex: 1,
     marginTop: -25,
-    paddingHorizontal: 30,
+    ...gs.screenPadding,
     paddingVertical: 20,
   },
   descriptionSection: {

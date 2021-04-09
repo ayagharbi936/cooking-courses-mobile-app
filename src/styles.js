@@ -6,7 +6,7 @@ export const COLORS = {
   dark: "#232323",
   primary: "#FB390D",
   secondary:"#FBB4A0",
-  bgColor: "#f5f5f5",
+  bgColor: "#f7f7f7",
   gray: "#717171",
   lightGray: "#ADAEB5",
 };
@@ -21,6 +21,10 @@ export const gs = StyleSheet.create({
     paddingVertical: 20,
     marginBottom: 10,
   },
+  screenPadding: {
+    paddingHorizontal: 25,
+  }
+  ,
   rowCenter: {
     flexDirection: "row",
     alignItems: "center",
