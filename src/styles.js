@@ -5,10 +5,12 @@ export const COLORS = {
   white: "#FFF",
   dark: "#232323",
   primary: "#FB390D",
-  secondary:"#FBB4A0",
+  secondary: "#FBB4A0",
   bgColor: "#f7f7f7",
+  secandaryBgColor: "rgba(251, 57, 13, 0.1)",
   gray: "#717171",
   lightGray: "#ADAEB5",
+  green: "#4db95f",
 };
 
 export const gs = StyleSheet.create({
@@ -23,8 +25,7 @@ export const gs = StyleSheet.create({
   },
   screenPadding: {
     paddingHorizontal: 25,
-  }
-  ,
+  },
   rowCenter: {
     flexDirection: "row",
     alignItems: "center",
@@ -45,10 +46,9 @@ export const gs = StyleSheet.create({
   },
   subTitle: {
     marginTop: 10,
-    color: COLORS.lightGray,
-    fontSize: 16,
-    fontFamily: "Roboto-Regular",
-
+    color: COLORS.gray,
+    fontSize: 15,
+    fontFamily: "Roboto-Light",
   },
   image: { resizeMode: "cover", width: "100%", height: "100%" },
   btnContainer: {
@@ -68,9 +68,9 @@ export const gs = StyleSheet.create({
     borderBottomColor: COLORS.lightGray,
     borderBottomWidth: 0.6,
   },
-  textInput:{
-   fontSize:18,
-   fontFamily:'Roboto-Regular'
+  textInput: {
+    fontSize: 18,
+    fontFamily: "Roboto-Regular",
   },
   highlight: {
     color: COLORS.primary,

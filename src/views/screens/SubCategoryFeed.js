@@ -1,25 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
+  ScrollView,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { COLORS, gs } from "../../styles";
 import ChefPost from "../components/ChefPost";
-const SubCategoryFeed = () => {
+import PostItem from "../components/PostItem";
+import all_posts from "../../consts/posts";
+const SubCategoryFeed = ({ route }) => {
+  const subCategory = route.params;
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    setPosts(all_posts.filter((item) => item.subCategory === subCategory.id));
+  }, []);
+
   return (
-    <SafeAreaView
-      style={{ ...gs.container, paddingTop: 40 }}
-    >
-      <View style={{...gs.rowBetween,...gs.screenPadding,marginBottom:20}}>
+    <SafeAreaView style={{ ...gs.container, paddingTop: 40 }}>
+      <View style={{ ...gs.rowBetween, ...gs.screenPadding, marginBottom: 20 }}>
         <View>
           <Text style={gs.title}>Formation</Text>
-          <Text style={gs.subTitle}>
-            Bienvenue au feed de formation de ...
-          </Text>
+          <Text style={gs.subTitle}>Bienvenue au feed de formation de ...</Text>
         </View>
         <TouchableOpacity>
           <View
@@ -35,12 +41,16 @@ const SubCategoryFeed = () => {
           </View>
         </TouchableOpacity>
       </View>
-      <ChefPost/>
+      <ScrollView>
+        <ChefPost />
+
+        {posts.map((item) => (
+          <PostItem post={item} key={item.id} />
+        ))}
+      </ScrollView>
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
-  
-});
+const styles = StyleSheet.create({});
 export default SubCategoryFeed;

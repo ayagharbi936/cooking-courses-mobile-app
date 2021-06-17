@@ -11,15 +11,18 @@ import {
 } from "react-native";
 import { COLORS, gs } from "../../styles";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Avatar from "../components/Avatar";
+import { color } from "react-native-reanimated";
 
 const ProfileUpdate = ({ navigation }) => {
   const imageUri =
     "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
 
   return (
-    <ScrollView showsVerticalScrollIndicator={false} style={{ ...gs.container, ...gs.screenPadding, paddingVertical: 40 }}>
-      <SafeAreaView>      
-      
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <SafeAreaView
+        style={{ ...gs.container, ...gs.screenPadding, paddingVertical: 40 }}
+      >
         <TouchableOpacity
           style={{ marginVertical: 10, alignSelf: "flex-start" }}
         >
@@ -30,62 +33,43 @@ const ProfileUpdate = ({ navigation }) => {
             onPress={() => navigation.goBack()}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity style={{ position: "relative", marginBottom:10 }}>
+          <Avatar
+            image={imageUri}
+            name="Hajer"
+            surname="Ben Hammouda"
+            imageStyle={{ borderRadius: 150 / 2 }}
+            avatarStyle={{
+              height: 150,
+              width: 150,
+              borderRadius: 150 / 2,
+              alignSelf: "center",
+            }}
+            letterSize={{ fontSize: 30 }}
+          />
+
           <View
-            style={[
-              {
-                alignSelf: "center",
-                height: 150,
-                width: 150,
-                borderRadius: 150 / 2,
-                backgroundColor: COLORS.primary,
-                position: "relative",
-              },
-              !imageUri && gs.center,
-            ]}
+            style={{
+              ...gs.center,
+              backgroundColor: COLORS.white,
+              height: 50,
+              width: 50,
+              borderRadius: 25,
+              position: "absolute",
+              bottom: 0,
+              right: 150/2,
+              elevation: 10,
+            }}
           >
-            <Image
-              style={[
-                {
-                  ...gs.image,
-                  borderRadius: 150 / 2,
-                  display: "none",
-                },
-                imageUri && { display: "flex" },
-              ]}
-              source={{ uri: imageUri ? imageUri : "notfound" }}
-            />
-
-            {!imageUri && (
-              <Text
-                style={{
-                  fontFamily: "Roboto-Medium",
-                  color: COLORS.white,
-                  fontSize: 50,
-                }}
-              >
-                SA
-              </Text>
-            )}
-
-            <View
-              style={{
-                ...gs.center,
-                backgroundColor: COLORS.white,
-                height: 50,
-                width: 50,
-                borderRadius: 25,
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                elevation: 10,
-              }}
-            >
-              <AntDesign size={25} color={COLORS.primary} name="camera" />
-            </View>
+            <AntDesign size={25} color={COLORS.primary} name="camera" />
           </View>
         </TouchableOpacity>
-        <View style={{ marginTop: 30, flex: 1 }}>
+        {imageUri && <TouchableOpacity>
+          <Text style={{textAlign:'center', color:COLORS.gray}}>
+            Supprimer La Photo
+          </Text>
+        </TouchableOpacity>}
+        <View style={{ marginTop: 10, flex: 1 }}>
           <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
             <TextInput
               style={gs.textInput}

@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { COLORS, gs } from "../../styles";
 import CategoryCard from "../components/CategoryCard";
+import Avatar from "../components/Avatar";
 import SubCategoryCard_Horizontal from "../components/SubCategoryCard_Horizontal";
 import all_categories from "../../consts/categories";
 import all_subCategories from "../../consts/subCategories";
@@ -25,51 +26,34 @@ const Home = ({ navigation }) => {
     "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8N3x8d29tYW58ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60";
   return (
     <ScrollView>
-      <SafeAreaView style={{ ...gs.container,...gs.screenPadding }}>
+      <SafeAreaView style={{ ...gs.container, ...gs.screenPadding }}>
         <View style={{ marginTop: 40, ...gs.rowBetween, alignItems: "center" }}>
-          <View
-            style={[
-              {
-                height: 50,
-                width: 50,
-                borderRadius: 25,
-                backgroundColor: COLORS.primary,
-              },
-              !imageUri && gs.center,
-            ]}
-          >
-            <Image
-              style={[
-                {
-                  ...gs.image,
-                  borderRadius: 25,
-                  display: "none",
-                },
-                imageUri && { display: "flex" },
-              ]}
-              source={{ uri: imageUri ? imageUri : "notfound" }}
-            />
-
-            {!imageUri && (
-              <Text
-                style={{
-                  fontFamily: "Roboto-Medium",
-                  color: COLORS.white,
-                  fontSize: 17,
-                }}
-              >
-                SA
-              </Text>
-            )}
-          </View>
+          <Avatar
+            image={imageUri}
+            name="Hajer"
+            surname="Ben Hammouda"
+            imageStyle={{borderRadius:25}}
+            avatarStyle={{ height: 50, width: 50, borderRadius:25}}
+            letterSize={{ fontSize: 17 }}
+          />
           <TouchableOpacity>
-            <View style={{position:'relative'}}>
+            <View style={{ position: "relative" }}>
               <Ionicons
                 name="notifications-outline"
                 size={29}
                 color={COLORS.dark}
               />
-              <View style={{position:'absolute',backgroundColor:COLORS.primary,height:7,width:7,borderRadius:7/2,top:5,left:5}} />
+              <View
+                style={{
+                  position: "absolute",
+                  backgroundColor: COLORS.primary,
+                  height: 7,
+                  width: 7,
+                  borderRadius: 7 / 2,
+                  top: 5,
+                  left: 5,
+                }}
+              />
             </View>
           </TouchableOpacity>
         </View>

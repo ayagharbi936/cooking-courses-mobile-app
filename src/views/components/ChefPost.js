@@ -12,6 +12,7 @@ import {
 import { COLORS, gs } from "../../styles";
 import PostModal from "./PostModal";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Avatar from "./Avatar";
 
 const ChefPost = () => {
   const [postModalVisible, setPostModalVisible] = useState(false);
@@ -19,13 +20,25 @@ const ChefPost = () => {
 
   return (
     <View style={styles.container}>
-      <Text
-        style={{ fontFamily: "Roboto-Bold", color: COLORS.gray, fontSize: 15 }}
-      >
-        Chef
-      </Text>
+      <View style={gs.rowCenter}>
+        <Avatar
+          image={""}
+          name="Hajer"
+          surname="Ben Hammouda"
+          imageStyle={{ borderRadius: 20 }}
+          avatarStyle={{
+            height: 40,
+            width: 40,
+            borderRadius: 20,
+            marginRight: 10,
+          }}
+          letterSize={{ fontSize: 12 }}
+        />
+
+        <Text style={{ fontSize: 12 }}>Hajer Ben Hammouda</Text>
+      </View>
       <TouchableOpacity>
-        <View style={{...styles.btnContainer,marginVertical:30}}>
+        <View style={{ ...styles.btnContainer, marginVertical: 20 }}>
           <Text style={styles.btnTitle}>Commencer un direct</Text>
         </View>
       </TouchableOpacity>
@@ -51,43 +64,47 @@ const ChefPost = () => {
           setPostModalVisible={setPostModalVisible}
         />
       </Modal>
-      <View style={{ ...gs.rowBetween, alignItems: "center"}}>
-        <View style={{flexDirection:'row',alignItems:'center'}}>
+      <View style={{ ...gs.rowBetween, alignItems: "center" }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <View
             style={{
               backgroundColor: COLORS.white,
               height: 30,
               width: 30,
               borderRadius: 15,
-              elevation: 13,
+              elevation: 5,
               ...gs.center,
             }}
           >
             <AntDesign size={18} color={COLORS.primary} name="videocamera" />
           </View>
-          <Text style={{ fontSize: 15, color: COLORS.dark,marginLeft:10 }}>Video</Text>
+          <Text style={{ fontSize: 15, color: COLORS.dark, marginLeft: 10 }}>
+            Video
+          </Text>
         </View>
-        <View style={{flexDirection:'row',alignItems:'center'}}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <View
             style={{
               backgroundColor: COLORS.white,
               height: 30,
               width: 30,
               borderRadius: 15,
-              elevation: 13,
+              elevation: 5,
               ...gs.center,
             }}
           >
             <AntDesign size={18} color={COLORS.primary} name="picture" />
           </View>
-          <Text style={{ fontSize: 15, color: COLORS.dark,marginLeft:10 }}>Image</Text>
+          <Text style={{ fontSize: 15, color: COLORS.dark, marginLeft: 10 }}>
+            Image
+          </Text>
         </View>
         <TouchableOpacity>
-        <View style={{...styles.btnContainer,flexDirection:'row'}}>
-          <Text style={styles.btnTitle}>Publier</Text>
-          <AntDesign name='edit' color={COLORS.white} size={16}/>
-        </View>
-      </TouchableOpacity>
+          <View style={{ ...styles.btnContainer, flexDirection: "row" }}>
+            <Text style={styles.btnTitle}>Publier</Text>
+            <AntDesign name="edit" color={COLORS.white} size={16} />
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -95,9 +112,9 @@ const ChefPost = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#efefef",
+    backgroundColor: "#fff",
     ...gs.screenPadding,
-    paddingVertical: 25,
+    paddingVertical: 15,
   },
   btnContainer: {
     backgroundColor: COLORS.primary,

@@ -14,7 +14,7 @@ import CategoriesFilterList from "../components/CategoriesFilterList";
 import CategoryCard from "../components/CategoryCard";
 import all_categories from "../../consts/categories";
 
-const Categories = ({navigation}) => {
+const Categories = ({ navigation }) => {
   const [categories, setCategories] = React.useState(all_categories);
 
   return (
@@ -44,17 +44,18 @@ const Categories = ({navigation}) => {
       </View>
 
       <CategoriesFilterList categories={categories} />
-      <FlatList showsVerticalScrollIndicator={false}
+      <FlatList
+        showsVerticalScrollIndicator={false}
         numColumns={1}
         data={categories}
-        keyExtractor={item=>item.id}
-        renderItem={({item}) => <CategoryCard category={item} navigation={navigation} /> }
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <CategoryCard category={item} navigation={navigation} />
+        )}
       />
     </SafeAreaView>
   );
 };
 
-const styles = StyleSheet.create({
- 
-});
+const styles = StyleSheet.create({});
 export default Categories;

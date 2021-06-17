@@ -4,7 +4,7 @@ import { COLORS, gs } from "../../styles";
 
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
-    this.timeoutHandle = setTimeout(() => {
+    setTimeout(() => {
       navigation.navigate("onBoardScreen");
     }, 2000);
   });
@@ -16,10 +16,11 @@ const SplashScreen = ({ navigation }) => {
         justifyContent: "space-between",
       }}
     >
-    <View style={{flex:1,...gs.center}}>
-      <View style={{height:300,width:300}}>
-      <Image style={gs.image} source={require('../../assets/Logo.png')}/>
-      </View></View>
+      <View style={{ flex: 1, ...gs.center }}>
+        <View style={{ height: 300, width: 300 }}>
+          <Image style={gs.image} source={require("../../assets/Logo.png")} />
+        </View>
+      </View>
       <View style={{ marginBottom: 20 }}>
         <Text
           style={{

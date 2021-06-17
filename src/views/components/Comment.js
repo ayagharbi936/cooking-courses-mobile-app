@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { COLORS, gs } from "../../styles";
 import { Rating } from "react-native-ratings";
+import Avatar from "./Avatar";
 
 const Comment = ({ comment }) => {
   return (
@@ -9,19 +10,14 @@ const Comment = ({ comment }) => {
       <View>
         <View style={{ ...gs.rowBetween, alignItems: "center" }}>
           <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View
-              style={{
-                height: 35,
-                width: 35,
-                borderRadius: 20,
-                marginRight: 10,
-              }}
-            >
-              <Image
-                source={{ uri: comment.userImage }}
-                style={{ borderRadius: 20, ...gs.image }}
-              />
-            </View>
+            <Avatar
+              image={comment.userImage}
+              name={comment.userName}
+              surname={comment.userName}
+              imageStyle={{ borderRadius: 35 / 2 }}
+              avatarStyle={{ height: 35, width: 35, borderRadius: 35 / 2, marginRight: 10 }}
+              letterSize={{ fontSize: 10 }}
+            />
 
             <Text
               style={{ color: COLORS.dark, fontSize: 13, fontWeight: "700" }}
@@ -34,7 +30,7 @@ const Comment = ({ comment }) => {
               style={{
                 flexDirection: "row",
                 alignItems: "center",
-                justifyContent:'flex-end'
+                justifyContent: "flex-end",
               }}
             >
               <Rating
@@ -48,14 +44,12 @@ const Comment = ({ comment }) => {
               />
               <Text
                 style={{
-                 
                   fontSize: 15,
                   fontWeight: "bold",
                   color: COLORS.gray,
                 }}
               >
-               
-               {comment.rate}
+                {comment.rate}
               </Text>
             </View>
             <Text

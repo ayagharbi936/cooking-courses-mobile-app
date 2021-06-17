@@ -1,4 +1,6 @@
-import React, { useEffect,useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-native/no-inline-styles */
+import React, { useEffect, useState } from 'react';
 import {
   View,
   Text,
@@ -7,21 +9,19 @@ import {
   ImageBackground,
   ScrollView,
   StatusBar,
-} from "react-native";
-import AntDesign from "react-native-vector-icons/AntDesign";
-import { COLORS, gs } from "../../styles";
-import SubCategoryCard from "../components/SubCategoryCard";
-import all_comments from "../../consts/comments";
-import all_subCategroris from "../../consts/subCategories";
+} from 'react-native';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { COLORS, gs } from '../../styles';
+import SubCategoryCard from '../components/SubCategoryCard';
+import all_subCategroris from '../../consts/subCategories';
 
 const CategoryDetails = ({ navigation, route }) => {
   const category = route.params;
   const [favorite, setFavorite] = useState(false);
-  const [subCategories, setSubCategories] = useState(all_subCategroris);
+  const [subCategories, setSubCategories] = useState([]);
 
   useEffect(() => {
-    setSubCategories((prev) =>
-      prev.filter((item) => item.category === category.id)
+    setSubCategories(all_subCategroris.filter((item) => item.category === category.id)
     );
   }, []);
   return (
@@ -33,11 +33,11 @@ const CategoryDetails = ({ navigation, route }) => {
       />
 
       <ImageBackground
-        style={{ width: "100%", height: 270 }}
+        style={{ width: '100%', height: 270 }}
         source={{ uri: category.image }}
       >
         <SafeAreaView style={{ marginTop: 5 }}>
-          <View style={{ ...gs.rowBetween, padding: 30, alignItems: "center" }}>
+          <View style={{ ...gs.rowBetween, padding: 30, alignItems: 'center' }}>
             <View style={gs.rowCenter}>
               <AntDesign
                 name="arrowleft"
@@ -49,7 +49,7 @@ const CategoryDetails = ({ navigation, route }) => {
                 style={{
                   marginLeft: 10,
                   color: COLORS.white,
-                  fontFamily: "Roboto-Bold",
+                  fontFamily: 'Roboto-Bold',
                 }}
               >
                 Catégories
@@ -81,10 +81,10 @@ const CategoryDetails = ({ navigation, route }) => {
             {subCategories.length === 0 && (
               <Text
                 style={{
-                  fontFamily: "Roboto-Medium",
+                  fontFamily: 'Roboto-Medium',
                   fontSize: 14,
                   color: COLORS.gray,
-                  marginTop:10
+                  marginTop: 10,
                 }}
               >
                 Pas de fomations encore pour cette categorie

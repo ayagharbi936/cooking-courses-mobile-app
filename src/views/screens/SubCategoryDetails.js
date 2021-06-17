@@ -19,7 +19,8 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { COLORS, gs } from "../../styles";
 import Comment from "../components/Comment";
 import PayModal from "../components/PayModal";
-import all_comments from "../../consts/comments"
+import all_comments from "../../consts/comments";
+import CoursesButton from "../components/CoursesButton";
 const SubCategoryDetails = ({ navigation, route }) => {
   const subCategory = route.params;
   const [favorite, setFavorite] = useState(false);
@@ -29,13 +30,17 @@ const SubCategoryDetails = ({ navigation, route }) => {
 
   return (
     <SafeAreaView style={gs.container}>
-       <StatusBar  translucent backgroundColor={payModalVisible ? COLORS.bgColor: 'transparent'} barStyle="dark-content" />
+      <StatusBar
+        translucent
+        backgroundColor={payModalVisible ? COLORS.bgColor : "transparent"}
+        barStyle="dark-content"
+      />
 
       <ImageBackground
         style={{ width: "100%", height: 270 }}
         source={{ uri: subCategory.image }}
       >
-        <SafeAreaView style={{marginTop:5}}>
+        <SafeAreaView style={{ marginTop: 5 }}>
           <View style={{ ...gs.rowBetween, padding: 30, alignItems: "center" }}>
             <View style={gs.rowCenter}>
               <AntDesign
@@ -48,7 +53,7 @@ const SubCategoryDetails = ({ navigation, route }) => {
                 style={{
                   marginLeft: 10,
                   color: COLORS.white,
-                  fontFamily:'Roboto-Bold'
+                  fontFamily: "Roboto-Bold",
                 }}
               >
                 Formations
@@ -118,32 +123,7 @@ const SubCategoryDetails = ({ navigation, route }) => {
             <TouchableOpacity style={gs.roundIcon}>
               <AntDesign name="message1" size={20} color={COLORS.primary} />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => setPayModalVisible(true)}
-              activeOpacity={0.8}
-              style={{ ...gs.btnContainer, height: 40, paddingHorizontal: 10 }}
-            >
-              <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Text
-                  style={{
-                    ...gs.btnTitle,
-                    fontSize: 12,
-                    letterSpacing: 0,
-                    marginRight: 10,
-                    fontWeight: "bold",
-                  }}
-                >
-                  Payer le cours
-                </Text>
-                <View style={{ ...gs.roundIcon, height: 25, width: 25 }}>
-                  <AntDesign
-                    name="shoppingcart"
-                    size={17}
-                    color={COLORS.primary}
-                  />
-                </View>
-              </View>
-            </TouchableOpacity>
+            <CoursesButton setPayModalVisible={setPayModalVisible} isPaid={true} navigation={navigation} subCategory={subCategory} />
           </View>
           <View
             style={{ flexDirection: "row", marginTop: 5, alignItems: "center" }}
