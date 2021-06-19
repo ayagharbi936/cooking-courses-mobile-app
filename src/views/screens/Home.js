@@ -4,11 +4,8 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  Image,
-  ImageBackground,
   TouchableOpacity,
   ScrollView,
-  FlatList,
 } from "react-native";
 import { COLORS, gs } from "../../styles";
 import CategoryCard from "../components/CategoryCard";
@@ -32,8 +29,8 @@ const Home = ({ navigation }) => {
             image={imageUri}
             name="Hajer"
             surname="Ben Hammouda"
-            imageStyle={{borderRadius:25}}
-            avatarStyle={{ height: 50, width: 50, borderRadius:25}}
+            imageStyle={{ borderRadius: 25 }}
+            avatarStyle={{ height: 50, width: 50, borderRadius: 25 }}
             letterSize={{ fontSize: 17 }}
           />
           <TouchableOpacity>
@@ -95,6 +92,8 @@ const Home = ({ navigation }) => {
           </Text>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {subCategories
+              // filter just for test
+              // after api integration it will be the three recent added subcategories
               .filter((item) => item.id === 1 || item.id === 8 || item.id === 5)
               .map((item) => {
                 return (

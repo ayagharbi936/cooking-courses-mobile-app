@@ -8,7 +8,6 @@ import {
   Dimensions,
 } from "react-native";
 import { COLORS, gs } from "../../styles";
-import AntDesign from "react-native-vector-icons/AntDesign";
 import { Rating } from "react-native-ratings";
 const { width } = Dimensions.get("screen");
 const cardWidth = width / 2 - 54;

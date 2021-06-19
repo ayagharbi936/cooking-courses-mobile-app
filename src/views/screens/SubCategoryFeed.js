@@ -12,7 +12,7 @@ import { COLORS, gs } from "../../styles";
 import ChefPost from "../components/ChefPost";
 import PostItem from "../components/PostItem";
 import all_posts from "../../consts/posts";
-const SubCategoryFeed = ({ route }) => {
+const SubCategoryFeed = ({ route, navigation }) => {
   const subCategory = route.params;
   const [posts, setPosts] = useState([]);
 
@@ -25,7 +25,7 @@ const SubCategoryFeed = ({ route }) => {
       <View style={{ ...gs.rowBetween, ...gs.screenPadding, marginBottom: 20 }}>
         <View>
           <Text style={gs.title}>Formation</Text>
-          <Text style={gs.subTitle}>Bienvenue au feed de formation de ...</Text>
+          <Text style={gs.subTitle}>Bienvenue au feed de {subCategory.name}</Text>
         </View>
         <TouchableOpacity>
           <View
@@ -45,7 +45,7 @@ const SubCategoryFeed = ({ route }) => {
         <ChefPost />
 
         {posts.map((item) => (
-          <PostItem post={item} key={item.id} />
+          <PostItem post={item} key={item.id} navigation={navigation} />
         ))}
       </ScrollView>
     </SafeAreaView>

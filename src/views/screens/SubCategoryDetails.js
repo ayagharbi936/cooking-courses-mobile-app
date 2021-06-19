@@ -25,7 +25,8 @@ const SubCategoryDetails = ({ navigation, route }) => {
   const subCategory = route.params;
   const [favorite, setFavorite] = useState(false);
   const [payModalVisible, setPayModalVisible] = useState(false);
-
+  // just for testing
+  const [isPaid, setIsPaid] = useState(false);
   const [comments, setComments] = useState(all_comments);
 
   return (
@@ -71,8 +72,8 @@ const SubCategoryDetails = ({ navigation, route }) => {
         </SafeAreaView>
       </ImageBackground>
 
-      <Modal transparent visible={payModalVisible}>
-        <PayModal setPayModalVisible={setPayModalVisible} />
+      <Modal transparent visible={payModalVisible} >
+        <PayModal setPayModalVisible={setPayModalVisible} setIsPaid={setIsPaid} />
       </Modal>
       <ScrollView>
         <View style={styles.detailsContainer}>
@@ -123,7 +124,12 @@ const SubCategoryDetails = ({ navigation, route }) => {
             <TouchableOpacity style={gs.roundIcon}>
               <AntDesign name="message1" size={20} color={COLORS.primary} />
             </TouchableOpacity>
-            <CoursesButton setPayModalVisible={setPayModalVisible} isPaid={true} navigation={navigation} subCategory={subCategory} />
+            <CoursesButton
+              setPayModalVisible={setPayModalVisible}
+              isPaid={isPaid}
+              navigation={navigation}
+              subCategory={subCategory}
+            />
           </View>
           <View
             style={{ flexDirection: "row", marginTop: 5, alignItems: "center" }}

@@ -5,7 +5,6 @@ import {
   StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  ScrollView,
   FlatList,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";

@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  Image,
   TouchableOpacity,
   TextInput,
   ScrollView,
@@ -12,7 +11,6 @@ import {
 import { COLORS, gs } from "../../styles";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Avatar from "../components/Avatar";
-import { color } from "react-native-reanimated";
 
 const ProfileUpdate = ({ navigation }) => {
   const imageUri =
@@ -33,7 +31,7 @@ const ProfileUpdate = ({ navigation }) => {
             onPress={() => navigation.goBack()}
           />
         </TouchableOpacity>
-        <TouchableOpacity style={{ position: "relative", marginBottom:10 }}>
+        <TouchableOpacity style={{ position: "relative", marginBottom: 10 }}>
           <Avatar
             image={imageUri}
             name="Hajer"
@@ -57,18 +55,20 @@ const ProfileUpdate = ({ navigation }) => {
               borderRadius: 25,
               position: "absolute",
               bottom: 0,
-              right: 150/2,
+              right: 150 / 2,
               elevation: 10,
             }}
           >
             <AntDesign size={25} color={COLORS.primary} name="camera" />
           </View>
         </TouchableOpacity>
-        {imageUri && <TouchableOpacity>
-          <Text style={{textAlign:'center', color:COLORS.gray}}>
-            Supprimer La Photo
-          </Text>
-        </TouchableOpacity>}
+        {imageUri && (
+          <TouchableOpacity>
+            <Text style={{ textAlign: "center", color: COLORS.gray }}>
+              Supprimer La Photo
+            </Text>
+          </TouchableOpacity>
+        )}
         <View style={{ marginTop: 10, flex: 1 }}>
           <View style={{ ...gs.inputContainer, marginBottom: 30 }}>
             <TextInput

@@ -1,14 +1,6 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableHighlight,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { COLORS, gs } from "../../styles";
-import { Rating} from "react-native-ratings";
 
 const CategoryCard = ({ navigation, category }) => {
   return (
@@ -27,11 +19,16 @@ const CategoryCard = ({ navigation, category }) => {
             </Text>
           </View>
           <View style={{ alignItems: "flex-end" }}>
-            
-            <Text style={{marginTop: 2, fontSize: 12,color:COLORS.primary, fontFamily:'Roboto-Medium' }}>
+            <Text
+              style={{
+                marginTop: 2,
+                fontSize: 12,
+                color: COLORS.primary,
+                fontFamily: "Roboto-Medium",
+              }}
+            >
               {category.posts} Formations
             </Text>
-            
           </View>
         </View>
       </View>

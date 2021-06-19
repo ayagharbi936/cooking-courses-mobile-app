@@ -2,8 +2,6 @@ import React from "react";
 import {
   View,
   Text,
-  StyleSheet,
-  Image,
   TouchableOpacity,
   Dimensions,
   ImageBackground,
@@ -32,16 +30,14 @@ const FavoriteCard = ({ navigation, subCategory, deleteFavorite }) => {
             paddingHorizontal: 10,
           }}
         >
-         
           <View
             style={{
               ...gs.center,
               height: 27,
               width: 27,
-              borderRadius: 27/2,
+              borderRadius: 27 / 2,
               backgroundColor: COLORS.primary,
-              marginTop:-27/2,
-            
+              marginTop: -27 / 2,
             }}
           >
             <AntDesign size={10} color={COLORS.white} name="heart" />

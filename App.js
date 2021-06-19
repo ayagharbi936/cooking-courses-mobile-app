@@ -21,6 +21,7 @@ import ProfileUpdate from "./src/views/screens/ProfileUpdate";
 import Favorites from "./src/views/screens/Favorites";
 import Profile from "./src/views/screens/Profile";
 import SubCategoryFeed from "./src/views/screens/SubCategoryFeed";
+import PostDetails from "./src/views/screens/PostDetails";
 const Stack = createStackNavigator();
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
         <Stack.Screen name="categoryDetails" component={CategoryDetails} />
         <Stack.Screen name="subCategoryDetails" component={SubCategoryDetails} />
         <Stack.Screen name="subCategoryFeed" component={SubCategoryFeed} />
+        <Stack.Screen name="postDetails" component={PostDetails} />
         <Stack.Screen name="profile" component={Profile} />
         <Stack.Screen name="profileUpdate" component={ProfileUpdate} />
         <Stack.Screen name="favorites" component={Favorites} />

@@ -4,7 +4,6 @@ import {
   Text,
   StyleSheet,
   SafeAreaView,
-  Image,
   TouchableOpacity,
 } from "react-native";
 import { COLORS, gs } from "../../styles";

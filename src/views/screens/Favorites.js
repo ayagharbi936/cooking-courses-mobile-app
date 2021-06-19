@@ -1,13 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  SafeAreaView,
-  TouchableOpacity,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import { SafeAreaView, TouchableOpacity, FlatList } from "react-native";
 import { COLORS, gs } from "../../styles";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import FavoriteCard from "../components/FavoriteCard";
@@ -15,6 +7,7 @@ import all_favorites from "../../consts/subCategories";
 const Favorites = ({ navigation }) => {
   const [favorites, setFavorites] = useState(all_favorites);
   useEffect(() => {
+    // just for test
     setFavorites((prev) =>
       prev.filter(
         (item) =>
@@ -47,7 +40,7 @@ const Favorites = ({ navigation }) => {
         />
       </TouchableOpacity>
       <FlatList
-      columnWrapperStyle={{justifyContent:'space-between',paddingTop:20}}
+        columnWrapperStyle={{ justifyContent: "space-between", paddingTop: 20 }}
         showsVerticalScrollIndicator={false}
         numColumns={2}
         data={favorites}

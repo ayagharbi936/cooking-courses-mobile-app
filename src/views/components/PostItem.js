@@ -1,11 +1,13 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { COLORS, gs } from "../../styles";
 import Avatar from "./Avatar";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Video from "react-native-video";
 
-const PostItem = ({ post }) => {
+const PostItem = ({ post, navigation }) => {
+  const [like, setLike] = useState(false);
+
   return (
     <View style={styles.cardContainer}>
       <View style={{ ...gs.rowCenter, ...gs.screenPadding }}>
@@ -31,18 +33,22 @@ const PostItem = ({ post }) => {
           </Text>
         </View>
       </View>
-      <View style={{ ...gs.screenPadding, marginVertical: 10 }}>
-        <Text style={{ fontSize: 14, color: COLORS.dark }}>
-          {post.main.length > 130
-            ? `${post.main.substring(0, 130)} ... `
-            : post.main}
-          {post.main.length > 130 && (
-            <Text style={{ fontSize: 13, color: COLORS.lightGray }}>
-              Voir plus
-            </Text>
-          )}
-        </Text>
-      </View>
+      <TouchableOpacity
+        onPress={() => navigation.navigate("postDetails", post)}
+      >
+        <View style={{ ...gs.screenPadding, marginVertical: 10 }}>
+          <Text style={{ fontSize: 14, color: COLORS.dark }}>
+            {post.main.length > 130
+              ? `${post.main.substring(0, 130)} ... `
+              : post.main}
+            {post.main.length > 130 && (
+              <Text style={{ fontSize: 13, color: COLORS.lightGray }}>
+                Voir plus
+              </Text>
+            )}
+          </Text>
+        </View>
+      </TouchableOpacity>
       {post.image !== "" && (
         <View style={{ height: 170 }}>
           <Image
@@ -58,7 +64,7 @@ const PostItem = ({ post }) => {
           <Video
             controls={true}
             resizeMode="cover"
-            posterResizeMode={'cover'}
+            posterResizeMode={"cover"}
             style={styles.backgroundVideo}
             source={{ uri: post.video }}
           />
@@ -67,7 +73,17 @@ const PostItem = ({ post }) => {
 
       <View style={{ ...gs.rowCenter, ...gs.screenPadding, marginTop: 10 }}>
         <View style={{ ...gs.rowCenter, marginRight: 20 }}>
-          <AntDesign size={20} color={COLORS.dark} name="hearto" />
+          <TouchableOpacity
+            onPress={() => {
+              setLike(!like);
+            }}
+          >
+            <AntDesign
+              size={20}
+              color={like ? COLORS.primary : COLORS.dark}
+              name={like ? "heart" : "hearto"}
+            />
+          </TouchableOpacity>
           <Text style={{ marginLeft: 5, fontSize: 12, color: COLORS.dark }}>
             10
           </Text>
